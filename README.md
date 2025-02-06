@@ -42,6 +42,10 @@ pip install -r requirements.txt
 git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
 ```
+## Usage
+Please go through demo.ipynb for an example of analysis with explanations to accompany 
+This notebook will generate a report for a specific neuron that gets saved in a reports directory
+
 
 ## Method Overview
 
