@@ -1,10 +1,24 @@
 import textwrap
+import os
 
 class ColorTuningReport:
-    def __init__(self, analyzer):
-        """Initialize report with analyzer results"""
+    def __init__(self, analyzer, neuron_idx=None):
+        """Initialize report with analyzer results and optional neuron ID"""
         self.metrics = analyzer.get_metrics()
         self.analyzer = analyzer
+        self.neuron_idx = neuron_idx
+
+    def save_report(self, filename):
+        """Save report to a text file"""
+        # Create reports directory if it doesn't exist
+        os.makedirs('reports', exist_ok=True)
+        report_text = []
+        if self.neuron_idx is not None:
+            report_text.append(f"Neuron ID: {self.neuron_idx}\n")
+        report_text.append(self.generate_report())
+        
+        with open(filename, 'w') as f:
+            f.write('\n'.join(report_text))
 
     def generate_report(self):
         """Create full analysis report"""
@@ -36,7 +50,7 @@ class ColorTuningReport:
     def _create_summary_text(self):
         """Generate report text for multi-peak results"""
         lines = [
-            f"{' COLOR TUNING ANALYSIS ':=^70}",
+            f"{' COLOR TUNING ANALYSIS:':=^70}",
             f"Baseline firing rate: {self.metrics['baseline']:.2f} spk/100ms",
             f"Detected excitatory peaks: {len(self.metrics['peaks'])}",
             f"Detected inhibitory troughs: {len(self.metrics['troughs'])}",
