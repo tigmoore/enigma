@@ -29,7 +29,7 @@ This is done by analysing the changes that arise in a specific neurons response,
     - Peak/trough characteristics
     - Color selectivity ranges
     - Invariance regions
-    - Response metrics
+
 
 ## Installation
 
