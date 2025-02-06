@@ -100,7 +100,7 @@ The analysis provides two main visualization types:
    - Color spectrum background
    - Highlighted selective and invariant regions
    - Peak and trough annotations
-![Tuning Curve Example](figures/tuning_curve.png)
+![Tuning Curve Example](figures/tuning.png)
 2. **Derivative Analysis Plot**
    - Response derivative
    - Threshold regions
