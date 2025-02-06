@@ -32,12 +32,16 @@ This is done by analysing the changes that arise in a specific neurons response,
 
 
 ## Installation
-
-1. Install Python dependencies:
+1. clone the repo
+```bash
+git clone https://github.com/tigmoore/enigma.git
+cd engima
+```
+2. Install Python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-2. If not done already, clone and install the repo needed to use the in-silico model
+3. If not done already, clone and install the repo needed to use the in-silico model
 ```
 git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
