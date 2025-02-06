@@ -67,7 +67,7 @@ from visualize import plot_tuning_with_spectrum, plot_derivative_analysis
 from nnvision.models.trained_models.v4_task_driven_color import ensemble_model as model
 
 # Specify which neuron within range(394) from the model to analyse 
-neuron_idx = 25
+neuron_idx = 27
 
 # Initialize model and generate color responses
 response_predictor = ResponsePredictor(model)
@@ -82,9 +82,9 @@ baseline = BaselineEstimator(response_predictor).estimate_baseline(neuron_idx)
 analyzer = ColorResponseAnalyzer(hues, responses, baseline)
 analyzer.process()
 
-# Generate visualizations and report
-plot_tuning_with_spectrum(analyzer)
-plot_derivative_analysis(analyzer, params_name='Color')
+# Generate visualizations and report, can save or not
+plot_tuning_with_spectrum(analyzer, neuron_idx, params_name='Color', save=True)
+plot_derivative_analysis(analyzer, neuron_idx, params_name='Color', save=True)
 report = ColorTuningReport(analyzer, neuron_idx)
 report.save_report(f'reports/neuron_{neuron_idx}_report.txt')
 ```
