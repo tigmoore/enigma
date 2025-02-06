@@ -43,7 +43,10 @@ git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
 ```
 ## Usage
+Detailed Examples
+For a complete walkthrough with detailed explanations and examples, please refer to:
 
+[demo.ipynb](demo.ipynb): Step-by-step tutorial of the analysis pipeline
 ### Quick Start
 ```python
 from stimuli import ColorStimulusGenerator
@@ -92,7 +95,7 @@ This toolkit implements a systematic approach to analyze color tuning properties
   - Processes images of size (1, 3, 100, 100)
 
 ### 2. Baseline Estimation
-- Estimates baseline firing rate for each neuron
+- Estimates baseline firing rate for each neuron 
 - Provides reference point for detecting excitatory and inhibitory responses
 - Essential for identifying significant response deviations
 
