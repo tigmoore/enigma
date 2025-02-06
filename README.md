@@ -7,8 +7,8 @@ A Python toolkit for analyzing color selectivity and invariance in neural respon
 This toolkit analyzes neural responses from a pre-trained CNN model that simulates V4 neural responses to colored images. It focuses on:
 - Detecting and characterizing color-selective responses (both excitatory and inhibitory)
 - Identifying regions of invariance to color changes
-- Visualizing tuning curves with color spectrum analysis
-- Quantifying selectivity through tuning curves
+
+This is done by analysing the changes that arise in a specific neurons response, given different input input images that remain identical, other than differences over the array of the color spectrum. We extract the neural tuning curves for individual neurons given 50 varying hues of color. 
 
 ## Features
 
