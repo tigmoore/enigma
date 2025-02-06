@@ -49,6 +49,13 @@ For a complete walkthrough with detailed explanations and examples, please refer
 [demo.ipynb](demo.ipynb): Step-by-step tutorial of the analysis pipeline
 ### Quick Start
 ```python
+import os
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from PIL import Image
+import nnvision
 from stimuli import ColorStimulusGenerator
 from model import ResponsePredictor
 from analysis import ColorResponseAnalyzer
@@ -56,7 +63,10 @@ from baseline import BaselineEstimator
 from report import ColorTuningReport
 from visualize import plot_tuning_with_spectrum, plot_derivative_analysis
 
-# Specify which neuron range(394) from the model to analyse 
+# load the model
+from nnvision.models.trained_models.v4_task_driven_color import ensemble_model as model
+
+# Specify which neuron within range(394) from the model to analyse 
 neuron_idx = 25
 
 # Initialize model and generate color responses
