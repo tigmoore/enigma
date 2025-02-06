@@ -46,7 +46,7 @@ pip install -e ./nnvision
 Detailed Examples
 For a complete walkthrough with detailed explanations and examples, please refer to:
 
-[demo.ipynb](demo.ipynb): Step-by-step tutorial of the analysis pipeline
+[demo.ipynb](demo.ipynb): Step-by-step tutorial of the analysis pipeline as well as answers to relevant questions
 ### Quick Start
 ```python
 import os
