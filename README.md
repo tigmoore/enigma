@@ -42,18 +42,35 @@ pip install -r requirements.txt
 git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
 ```
-## Detailed Analysis Method
 
-The color tuning analysis is performed through several key steps:
+## Method Overview
 
-### 1. Signal Processing
+This toolkit implements a systematic approach to analyze color tuning properties of simulated V4 neurons using a digital twin model. The analysis pipeline consists of several key stages:
+
+### 1. Stimulus Generation and Response Collection
+- **Color Stimulus Generation**
+  - Systematically samples hue values across the color spectrum (0 to 1)
+  - Generates solid color images with fixed saturation (1.0) and value (0.5)
+  - Uses HSV color space for intuitive color manipulation
+
+- **Neural Response Prediction**
+  - Utilizes a pre-trained CNN model that simulates V4 neural responses
+  - Predicts spike counts for each color stimulus
+  - Processes images of size (1, 3, 100, 100)
+
+### 2. Baseline Estimation
+- Estimates baseline firing rate for each neuron
+- Provides reference point for detecting excitatory and inhibitory responses
+- Essential for identifying significant response deviations
+
+### 3. Signal Processing
 - **Smoothing**: Applies Savitzky-Golay filtering to raw neural responses
   - Window size: 10 points
   - Polynomial order: 2
   - Purpose: Reduces noise while preserving response shape
 - **Derivative Calculation**: Computes gradient to identify rate of response change
 
-### 2. Peak Detection
+### 4. Peak Detection for Selectivity
 - **Excitatory Responses**
   - Identifies peaks above baseline
   - Uses prominence-based detection to find significant responses
@@ -74,7 +91,7 @@ The color tuning analysis is performed through several key steps:
     - Trough depth
     - Prominence
 
-### 3. Invariance Detection
+### 5. Invariance Detection
 - Normalizes response derivative by maximum rate of change
 - Identifies regions where normalized derivative is below threshold
 - Requires minimum width (3 points) for stable regions
@@ -108,5 +125,4 @@ The analysis provides two main visualization types:
    - Peak/trough markers
 ![Dervitave Curve Example](figures/derivative.png)
 
-## Usage
 
