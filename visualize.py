@@ -72,6 +72,7 @@ def plot_derivative_analysis(analyzer, params_name, threshold=0.1):
              loc='upper right', frameon=True)
     
     plt.tight_layout()
+    plt.show()
     return fig
 
 
@@ -113,6 +114,7 @@ def plot_tuning_with_spectrum(analyzer, params_name='Color'):
     ax.set_title(f'Color Tuning Analysis with {params_name} Spectrum', fontsize=14)
     ax.legend(loc='upper right', frameon=True)
     plt.tight_layout()
+    plt.show()
     return fig
 
 
