@@ -8,7 +8,7 @@ This toolkit analyzes neural responses from a pre-trained CNN model that simulat
 - Detecting and characterizing color-selective responses (both excitatory and inhibitory)
 - Identifying regions of invariance to color changes
 
-This is done by analysing the changes that arise in a specific neurons response, given different input input images that remain identical, other than differences over the array of the color spectrum. We extract the neural tuning curves for individual neurons given 50 varying hues of color. 
+This is done by analysing the changes that arise in a specific neurons response, given different input images that are identical, other than changing hues over the array of the color spectrum. We extract the neural tuning curves for individual neurons over 50 varying hues of color. 
 
 ## Features
 
@@ -47,8 +47,6 @@ git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
 ```
 ## Usage
-Detailed Examples
-For a complete walkthrough with detailed explanations and examples, please refer to:
 
 [demo.ipynb](demo.ipynb): Step-by-step tutorial of the analysis pipeline as well as answers to relevant questions
 ### Quick Start
@@ -174,4 +172,7 @@ The analysis provides two main visualization types:
    - Peak/trough markers
 ![Dervitave Curve Example](figures/derivative.png)
 
-
+## To Do
+- Summary metrics over all neurons to understand population responses 
+  - Plot frequency of neurons with large invariance
+  - Plot frequency of neurons with very prominent peaks 
