@@ -43,9 +43,38 @@ git clone -b interview https://github.com/KonstantinWilleke/nnvision.git
 pip install -e ./nnvision
 ```
 ## Usage
-Please go through demo.ipynb for an example of analysis with explanations to accompany 
-This notebook will generate a report for a specific neuron that gets saved in a reports directory
 
+### Quick Start
+```python
+from stimuli import ColorStimulusGenerator
+from model import ResponsePredictor
+from analysis import ColorResponseAnalyzer
+from baseline import BaselineEstimator
+from report import ColorTuningReport
+from visualize import plot_tuning_with_spectrum, plot_derivative_analysis
+
+# Specify which neuron range(394) from the model to analyse 
+neuron_idx = 25
+
+# Initialize model and generate color responses
+response_predictor = ResponsePredictor(model)
+stimulus_generator = ColorStimulusGenerator()
+hues = np.linspace(0, 1, 50)
+responses = [response_predictor.predict_response(
+    stimulus_generator.generate_solid_color((h, 1.0, 0.5)), 
+    neuron_idx) for h in hues]
+
+# Analyze color tuning
+baseline = BaselineEstimator(response_predictor).estimate_baseline(neuron_idx)
+analyzer = ColorResponseAnalyzer(hues, responses, baseline)
+analyzer.process()
+
+# Generate visualizations and report
+plot_tuning_with_spectrum(analyzer)
+plot_derivative_analysis(analyzer, params_name='Color')
+report = ColorTuningReport(analyzer, neuron_idx)
+report.save_report(f'reports/neuron_{neuron_idx}_report.txt')
+```
 
 ## Method Overview
 
