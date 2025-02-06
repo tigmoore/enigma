@@ -105,16 +105,15 @@ This toolkit implements a systematic approach to analyze color tuning properties
   - Processes images of size (1, 3, 100, 100)
 
 ### 2. Baseline Estimation
-- Estimates baseline firing rate for each neuron 
+- Estimates baseline firing rate for each neuron using neutral input
 - Provides reference point for detecting excitatory and inhibitory responses
-- Essential for identifying significant response deviations
 
 ### 3. Signal Processing
 - **Smoothing**: Applies Savitzky-Golay filtering to raw neural responses
   - Window size: 10 points
   - Polynomial order: 2
   - Purpose: Reduces noise while preserving response shape
-- **Derivative Calculation**: Computes gradient to identify rate of response change
+- **Derivative Calculation**: Computes gradient to identify rate of neuron response change
 
 ### 4. Peak Detection for Selectivity
 - **Excitatory Responses**
