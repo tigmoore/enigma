@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import hsv_to_rgb, LinearSegmentedColormap
 
 
-def plot_derivative_analysis(analyzer, params_name, threshold=0.1):
+def plot_derivative_analysis(analyzer, neuron_idx, params_name='Color', threshold=0.15, save=True):
     """Plot derivative with threshold regions and invariance analysis"""
     fig, ax = plt.subplots(figsize=(12, 6))
     
@@ -72,6 +72,8 @@ def plot_derivative_analysis(analyzer, params_name, threshold=0.1):
              loc='upper right', frameon=True)
     
     plt.tight_layout()
+    if save:
+        plt.savefig(f'derivative_{neuron_idx}.png')
     plt.show()
     return fig
 
@@ -84,7 +86,7 @@ def _plot_invariance_ranges(ax, analyzer):
 
 
 
-def plot_tuning_with_spectrum(analyzer, params_name='Color'):
+def plot_tuning_with_spectrum(analyzer, neuron_idx, params_name='Color', save=True):
     """Create comprehensive plot with color spectrum background"""
     fig, ax = plt.subplots(figsize=(12, 6))
     
@@ -114,6 +116,8 @@ def plot_tuning_with_spectrum(analyzer, params_name='Color'):
     ax.set_title(f'Color Tuning Analysis with {params_name} Spectrum', fontsize=14)
     ax.legend(loc='upper right', frameon=True)
     plt.tight_layout()
+    if save:
+        plt.savefig(f'tuning_curve_{neuron_idx}.png')
     plt.show()
     return fig
 
